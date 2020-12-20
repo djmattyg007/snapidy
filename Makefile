@@ -1,4 +1,4 @@
-.PHONY: all tsc dist serve
+.PHONY: all tsc dist serve bundle
 
 all: tsc dist
 
@@ -29,3 +29,9 @@ dist:
 
 serve:
 	python3 -m http.server --directory output
+
+bundle:
+	rm -f snapidy.zip
+	cd output && \
+		zip ../snapidy.zip * -x "config.json" && \
+		zip -r ../snapidy.zip 3rd-party

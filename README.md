@@ -8,6 +8,10 @@ There's already a great web client for Snapcast named [Snapweb](https://github.c
 The problem with Snapweb is it presents all clients separately, which is annoying if you have multiple clients running on a single host.
 The key difference is that Snapidy presents a single volume+mute control for each host.
 
+## Usage
+
+Download the latest archive from the releases page. This contains all assets already built and ready for use.
+
 ## Development
 
 1. Copy `config.example.json` to `config.json` and set the `wsUrl` parameter to the `jsonrpc` URL for your Snapcast instance
