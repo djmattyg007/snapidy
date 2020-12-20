@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+button {
+    cursor: pointer;
+}
+
+.navbar {
+    background-color: #607d8b;
+    padding: 10px 16px;
+    color: white;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.content {
+    padding: 8px;
+}
+.body {
+    margin-bottom: 25px;
+}
+.footer {
+    margin-top: 10px;
+    padding: 12px;
+}
+
+.button-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.snapidy-hosts {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-left: 0;
+}
+
+.snapidy-host-item {
+    flex: 0 0 100%;
+    padding: 8px 10px;
+}
+@media only screen and (min-width: 550px) and (max-width: 767px) {
+    .snapidy-host-item {
+        flex: 0 0 50%;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .snapidy-host-item {
+        flex: 0 0 33.33333%;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .snapidy-host-item {
+        flex: 0 0 25%;
+    }
+}
+.snapidy-host-box {
+    position: relative;
+    padding: 16px;
+    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.5);
+}
+.snapidy-host-header h4 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.snapidy-host-controls {
+    margin-bottom: 16px;
+}
+
+@media only screen and (max-width: 1023px) {
+    .snapidy-host-control-muted {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 8px;
+    }
+    .snapidy-host-control-muted button {
+        flex: 1 1 auto;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+    .snapidy-host-control-volume {
+        width: 100%;
+    }
+    .snapidy-host-control-volume input {
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .snapidy-host-control-muted,
+    .snapidy-host-control-volume {
+        display: inline-block;
+    }
+}
+
+.snapidy-host-client-status {
+    margin-bottom: 5px;
+    clear: both;
+}
+.snapidy-host-client-status .snapidy-host-client-name {
+    margin-right: 5px;
+}
+.snapidy-host-client-status .snapidy-client-mutestatus {
+    margin: 0 5px;
+    vertical-align: middle;
+}
+
+.snapidy-client-mutestatus {
+    width: 20px;
+    height: 20px;
+}
+
+.snapidy-host-details {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.snapidy-host-details button {
+    font-style: italic;
+    font-size: 16px;
+}

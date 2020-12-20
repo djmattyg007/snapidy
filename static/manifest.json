@@ -1,0 +1,17 @@
+{
+    "short_name": "Snapidy",
+    "name": "Snapidy WebApp",
+    "icons": [
+        {
+            "src": "launcher_icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "/index.html",
+    "display": "standalone",
+    "categories": ["music"],
+    "description": "Snapcast web client",
+    "theme_color": "#455a64",
+    "background_color": "#ffffff"
+}

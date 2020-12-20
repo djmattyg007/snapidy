@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#455a64">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
+    <title>Snapidy</title>
+    <script src="3rd-party/vue-v3.0.4.js"></script>
+    <script src="3rd-party/vuex-v4.0.0-rc2.js"></script>
+    <script src="utils.js"></script>
+    <script src="snapcontrol.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script type="text/x-vue-template" id="host-template">
+        <div class="snapidy-host">
+            <div class="snapidy-host-box">
+                <div class="snapidy-host-header">
+                    <h4>{{ host.host.name }}</h4>
+                </div>
+                <div class="snapidy-host-controls">
+                    <div class="snapidy-host-control-muted">
+                        <button type="button" @click="muteHost" title="Mute Host" aria-label="Mute Host">
+                            <img src="mute_icon.png" alt="Mute" class="button-icon">
+                        </button>
+                        <button type="button" @click="unmuteHost" title="Unmute Host" aria-label="Unmute Host">
+                            <img src="speaker_icon.png" alt="Unmute" class="button-icon">
+                        </button>
+                    </div>
+                    <div class="snapidy-host-control-volume">
+                        <input v-model.number="volumePercent" type="range" min="0" max="100" step="1">
+                    </div>
+                </div>
+                <div class="snapidy-host-clients">
+                    <div v-for="client of host.clients" :key="client.id" class="snapidy-host-client-status">
+                        <span class="snapidy-host-client-name">{{ client.streamId }}</span>
+                        <template v-if="client.muted">
+                            <img src="mute_icon.png" alt="Muted" title="Muted" class="snapidy-client-mutestatus">
+                        </template>
+                        <template v-else>
+                            <img src="speaker_icon.png" alt="Unmuted" title="Not Muted" class="snapidy-client-mutestatus">
+                        </template>
+                        <span class="snapidy-host-client-volume">{{ client.volumePercent }}%</span>
+                        <button type="button" @click="showClientDetails(client)" title="Show Client Details" aria-label="Show Client Details" style="float: right; font-style: italic;">i</button>
+                    </div>
+                </div>
+
+                <div class="snapidy-host-details">
+                    <button type="button" @click="showHostDetails" title="Show Host Details" aria-label="Show Host Details">i</button>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/x-vue-template" id="app-template">
+        <div>
+            <div class="navbar">
+                <div>
+                    Snapidy
+                    <span v-if="server" style="float: right;">{{ server.host.name }}</span>
+                </div>
+            </div>
+            <div class="content">
+                <div class="body">
+                    <ul class="snapidy-hosts">
+                        <li v-for="host of hosts" :key="host.host.name" class="snapidy-host-item">
+                            <snapidy-host :host="host" />
+                        </li>
+                    </ul>
+                </div>
+                <div v-if="server" class="footer">
+                    Arch: {{ server.host.arch }}<br>
+                    OS: {{ server.host.os }}<br>
+                    Version: {{ server.snapserver.version }}<br>
+                    Protocol Version: {{ server.snapserver.protocolVersion }}<br>
+                    Control Protocol Version: {{ server.snapserver.controlProtocolVersion }}<br>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script src="frontend.js"></script>
+</body>
+</html>
