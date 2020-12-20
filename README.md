@@ -12,6 +12,8 @@ The key difference is that Snapidy presents a single volume+mute control for eac
 
 Download the latest archive from the releases page. This contains all assets already built and ready for use.
 
+Once you've extracted the archive, you'll need to manually create the `config.json` file.
+
 ## Development
 
 1. Copy `config.example.json` to `config.json` and set the `wsUrl` parameter to the `jsonrpc` URL for your Snapcast instance
