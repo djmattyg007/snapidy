@@ -10,6 +10,7 @@ dist:
 	rm -rf output
 	mkdir output
 	mkdir output/3rd-party
+	cp LICENSE.txt output/
 	cp static/3rd-party/vue-v3.0.4.js output/3rd-party/
 	cp static/3rd-party/vuex-v4.0.0-rc2.js output/3rd-party/
 	cp static/favicon.ico output/
